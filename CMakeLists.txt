@@ -81,7 +81,18 @@ include(CTest) #adds option BUILD_TESTING (default ON)
 
 if(BUILD_TESTING AND JSON_BuildTests)
     enable_testing()
-    add_subdirectory(test)
+
+    include(FetchContent)
+    FetchContent_Declare(
+      nlohmann_json_tests
+      GIT_REPOSITORY https://github.com/nlohmann/json_tests_tmp.git
+      GIT_SHALLOW TRUE
+    )
+
+    message(STATUS "Download tests")
+    FetchContent_MakeAvailable(nlohmann_json_tests)
+    message(STATUS "Download tests - done")
+    add_subdirectory(${nlohmann_json_tests_SOURCE_DIR}/test)
 endif()
 
 ##
