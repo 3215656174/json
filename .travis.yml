@@ -314,8 +314,8 @@ script:
        brew upgrade cmake
      else
        CMAKE_URL="https://cmake.org/files/v3.11/cmake-3.11.0-Linux-x86_64.tar.gz"
-       mkdir cmake && travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake
-       export PATH=${DEPS_DIR}/cmake/bin:${PATH}
+       mkdir cmake_binary && travis_retry wget --no-check-certificate --quiet -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake_binary
+       export PATH=${DEPS_DIR}/cmake_binary/bin:${PATH}
      fi
   - cmake --version
 
