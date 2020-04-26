@@ -45,7 +45,7 @@ matrix:
     env:
       - COMPILER=clang++-7
       - CMAKE_OPTIONS=-DJSON_Sanitizer=ON
-      - UBSAN_OPTIONS=print_stacktrace=1,suppressions=$(pwd)/test/src/UBSAN.supp
+      - UBSAN_OPTIONS=print_stacktrace=1,suppressions=$(pwd)/build/_deps/nlohmann_json_tests-src/test/src/UBSAN.supp
     addons:
       apt:
         sources: ['ubuntu-toolchain-r-test', 'llvm-toolchain-trusty-7']
