@@ -316,7 +316,6 @@ install:
        mkdir cmake_binary && travis_retry wget --no-check-certificate --quiet -O - https://cmake.org/files/v3.11/cmake-3.11.0-Linux-x86_64.tar.gz | tar --strip-components=1 -xz -C cmake_binary
        export PATH=$(pwd)/cmake_binary/bin:$PATH
      fi
-  - which cmake
   - cmake --version
 
   # make sure CXX is correctly set
@@ -331,6 +330,7 @@ install:
 script:
   # compile and execute unit tests
   - mkdir -p build && cd build
+  - cmake --version
   - cmake .. ${CMAKE_OPTIONS} -DJSON_MultipleHeaders=${MULTIPLE_HEADERS} -GNinja && cmake --build . --config Release
   - ctest -C Release --timeout 2700 -V -j
   - cd ..
