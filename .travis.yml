@@ -5,7 +5,7 @@
 # C++ project
 language: cpp
 
-dist: trusty
+dist: bionic
 sudo: required
 group: edge
 
