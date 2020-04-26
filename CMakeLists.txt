@@ -83,10 +83,9 @@ if(BUILD_TESTING AND JSON_BuildTests)
     enable_testing()
 
     include(FetchContent)
-    FetchContent_Declare(
-      nlohmann_json_tests
-      GIT_REPOSITORY https://github.com/nlohmann/json_tests_tmp.git
-      GIT_SHALLOW TRUE
+    FetchContent_Declare(nlohmann_json_tests
+        GIT_REPOSITORY https://github.com/nlohmann/json_tests_tmp.git
+        GIT_SHALLOW TRUE
     )
 
     message(STATUS "Download tests")
