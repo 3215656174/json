@@ -88,10 +88,13 @@ if(BUILD_TESTING AND JSON_BuildTests)
         GIT_SHALLOW TRUE
     )
 
-    message(STATUS "Download tests")
-    FetchContent_MakeAvailable(nlohmann_json_tests)
-    message(STATUS "Download tests - done")
-    add_subdirectory(${nlohmann_json_tests_SOURCE_DIR}/test)
+    FetchContent_GetProperties(nlohmann_json_tests)
+    if(NOT nlohmann_json_tests_POPULATED)
+        message(STATUS "Download tests")
+        FetchContent_Populate(nlohmann_json_tests)
+        message(STATUS "Download tests - done")
+        add_subdirectory(${nlohmann_json_tests_SOURCE_DIR}/test)
+    endif()
 endif()
 
 ##
