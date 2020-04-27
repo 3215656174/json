@@ -86,7 +86,7 @@ if(BUILD_TESTING AND JSON_BuildTests)
         message(FATAL_ERROR "The test suite needs at least CMake 3.11. This is CMake ${CMAKE_VERSION}.")
     endif()
 
-        include(FetchContent)
+    include(FetchContent)
     FetchContent_Declare(nlohmann_json_tests
         GIT_REPOSITORY https://github.com/nlohmann/json_tests_tmp.git
         GIT_SHALLOW TRUE
